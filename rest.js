@@ -20,10 +20,11 @@ function get_joke_of_the_day() {
 	 if (this.readyState == 4 && this.status == 200) {
          let joke=JSON.parse(this.response)
 	  
-	     document.getElementById("joke").innerHTML=joke.contents.jokes[0].joke.text
+	     document.getElementById("joke").innerHTML=joke.contents.jokes[0].joke.text+"<br>"
+         document.getElementById("joke").innerHTML+="credits to "+joke.contents.copyright+"&copy;"
 	 }
     };
-    xhttp.open("GET", "https://api.jokes.one/jod?category=animal", true);
+    xhttp.open("GET", "https://api.jokes.one/jod?category=blonde", true);
     xhttp.setRequestHeader("Content-type", "application/json");
     xhttp.setRequestHeader("X-JokesOne-Api-Secret", "YOUR API HERE");
     xhttp.send();
